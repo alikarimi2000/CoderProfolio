@@ -1,0 +1,98 @@
+﻿@page
+@model CD.UseCase.Pages.ProjectCategoryModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>لیست گروه پروژه ها</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .btn-success {
+            padding: 8px 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+            .btn-success:hover {
+                background-color: #45a049;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">لیست گروه محصولات</h1>
+        <p class="text-center">
+            <a asp-page="./Creat" class="btn-success">ایجاد جدید</a>
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>نام</th>
+                    <th>تاریخ ایجاد</th>
+                    <th>عملیات</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.projectCategoryViewModels)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Name</td>
+                        <td>@item.CreationDate</td>
+                        <td>
+                            <a asp-page="./Edit" asp-route-id="@item.Id" class="btn-success">ویرایش</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

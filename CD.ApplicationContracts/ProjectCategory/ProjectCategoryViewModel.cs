@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CD.ApplicationContracts.ProjectCategory
 {
-    public class ProjectViewModel
+    public class ProjectCategoryViewModel
     {
         public string Name { get; set; }
         public int Id { get; set; }

@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace CD.ApplicationContracts.Project
 {
-    internal class ProjectSearchModel
+    public class ProjectSearchModel
     {
+        public string Name { get; set; }
+        public bool IsRemoved { get; set; }
     }
 }

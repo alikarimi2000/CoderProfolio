@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace CD.ApplicationContracts.Project
 {
-    internal class EditProject
+    public class EditProject:CreatProject
     {
+        public int Id { get; set; }
+
     }
 }

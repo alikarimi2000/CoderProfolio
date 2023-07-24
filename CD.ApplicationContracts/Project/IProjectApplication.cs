@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace CD.ApplicationContracts.Project
 {
-    internal class IProjectApplication
+    public interface IProjectApplication
     {
+        void Creat(CreatProject Comand);
+        void Edit (EditProject Comand);
+        void Remove();
+        void Restore();
+        EditProject GetDetials (int  Id);
+        List<ProjectViewModel> Search (ProjectSearchModel Comand);
+
+
     }
 }

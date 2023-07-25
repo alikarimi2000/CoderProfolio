@@ -1,0 +1,83 @@
+﻿@page
+@model CD.UseCase.Pages.Project.CreatModel
+@{
+}
+
+
+
+<html>
+<head>
+    <title>فرم ورود نام کاربر</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        input[type="submit"] {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .success-message {
+            color: #4CAF50;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>نام گروه پروژه را وارد کنید:</h1>
+        <form method="post">
+            <input type="hidden" asp-for="@Model.CategoryID" required>
+            <input type="text" name="name" placeholder="توضیحات کوتاه">
+            <textarea name="Description" placeholder="توضیحات کامل"></textarea>
+            <input type="text" name="ShortDescription" placeholder="توضیحات کوتاه">
+            <input type="file" name="Image" accept="image/*">
+            <input type="text" name="Image" placeholder="لینک تصویر ">
+            <input type="file" name="File" accept="file/*">
+            <input type="text" name="File" placeholder="لینک فایل">
+
+            <input type="submit" value="ثبت">
+        </form>
+
+      
+    </div>
+</body>
+</html>

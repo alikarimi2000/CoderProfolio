@@ -8,6 +8,7 @@ namespace CD.ApplicationContracts.Project
 {
     public class CreatProject
     {
+        public  int CategoryId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public string ShortDescription { get; set; }

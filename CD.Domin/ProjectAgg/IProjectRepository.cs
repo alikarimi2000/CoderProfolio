@@ -13,6 +13,8 @@ namespace CD.Domain.ProjectAgg
         void SaveChange();
         EditProject GetDetails(int id);
         Project Get(int Id);
+        bool Exisit(string name, int categoryId);
+        List<ProjectViewModel> Search(ProjectSearchModel projectSearch);
 
     }
 }

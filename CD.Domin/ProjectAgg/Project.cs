@@ -15,7 +15,7 @@ namespace CD.Domain.ProjectAgg
         public int ProjectCategoriId { get; private set; }
         public ProjectCategory Category { get; private set; }
         public Project(string name, string shortDescription, string description,
-            string image, string file)
+            string image, string file, int projectCategoriId)
         {
             Name = name;
             ShortDescription = shortDescription;
@@ -24,6 +24,7 @@ namespace CD.Domain.ProjectAgg
             File = file;
             CreationDate = DateTime.Now;
             IsRemoved = false;
+            ProjectCategoriId=projectCategoriId;
         }
         public void Edit(string name, string shortDescription, string description,
             string image, string file)

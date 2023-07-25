@@ -10,8 +10,8 @@ namespace CD.ApplicationContracts.Project
     {
         void Creat(CreatProject Comand);
         void Edit (EditProject Comand);
-        void Remove();
-        void Restore();
+        void Remove(int id);
+        void Restore(int id);
         EditProject GetDetials (int  Id);
         List<ProjectViewModel> Search (ProjectSearchModel Comand);
 

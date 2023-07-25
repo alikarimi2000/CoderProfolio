@@ -1,5 +1,8 @@
 ﻿@page
-@model CD.UseCase.Pages.ProjectCategoryModel
+@model CD.UseCase.Pages.Project.IndexModel
+@{
+}
+
 
 <!DOCTYPE html>
 <html>
@@ -59,9 +62,22 @@
             display: inline-block;
         }
 
-            .btn-success:hover {
-                background-color: #45a049;
-            }
+        .btn-success:hover {
+            background-color: #45a049;
+        }
+
+        /* Additional styles for file and image display */
+        a {
+            text-decoration: none;
+            color: #4CAF50;
+        }
+
+        img {
+            max-width: 100px;
+            max-height: 100px;
+            display: block;
+            margin: 0 auto;
+        }
     </style>
 </head>
 <body>
@@ -76,21 +92,33 @@
                     <th>#</th>
                     <th>نام</th>
                     <th>تاریخ ایجاد</th>
+                    <th>فایل</th>
+                    <th>تصویر</th>
                     <th>عملیات</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model.projectCategoryViewModels)
+                @foreach (var item in Model.projectViewModels)
                 {
                     <tr>
                         <td>@item.Id</td>
                         <td>@item.Name</td>
                         <td>@item.CreationDate</td>
                         <td>
-                            <a asp-page="./Edit" asp-route-id="@item.Id" class="btn-success">ویرایش</a>
+                            @if (item.File != null)
+                            {
+                                <a href="@item.File" target="_blank">فایل</a>
+                            }
                         </td>
                         <td>
-                            <a asp-page="/Project/Creat" asp-route-id="@item.Id" asp-route-name="@item.Name" class="btn-success">افزودن پروژه</a>
+                            @if (item.Image != null)
+                            {
+                                <img src="@item.Image" alt="تصویر" />
+                            }
+                        </td>
+                        <td>
+                            <a asp-page="./Edit" asp-route-id="@item.Id" class="btn-success">ویرایش</a>
+                            <a asp-page="./Index" asp-route-id="@item.Id" asp-page-handler="Remove"  class="btn-success">حذف</a>
                         </td>
                     </tr>
                 }

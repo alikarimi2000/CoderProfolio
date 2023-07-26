@@ -18,11 +18,18 @@ namespace CD.UseCase.Pages.Project
         public void OnGet(ProjectSearchModel searchModel)
         {
             projectViewModels = projectApplication.Search(searchModel);
-            
+            projectViewModels = projectApplication.Search(searchModel);
+
         }
-        public IActionResult OnGetRemove(int id, ProjectSearchModel searchModel)
+        public IActionResult OnGetRemove(int id)
         {
             projectApplication.Remove(id);
+            return RedirectToPage("./Index");
+
+        }
+        public IActionResult OnGetRestore(int id)
+        {
+            projectApplication.Restore(id);
             return RedirectToPage("./Index");
 
         }

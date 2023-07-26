@@ -58,7 +58,7 @@ namespace CD.Application
             var project = _repository.Get(id);
             if (project != null)
             {
-                project.Delete();
+                project.Restore();
                 _repository.SaveChange();
             }
         }

@@ -13,6 +13,49 @@
             font-family: Arial, sans-serif;
             background-color: #f1f1f1;
         }
+        /* ... کدهای قبلی ... */
+
+        /* استایل دکمه‌ها */
+        .custom-button {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .delete-button {
+            background-color: red;
+            color: white;
+        }
+
+        .restore-button {
+            background-color: green;
+            color: white;
+        }
+
+        /* استایل وضعیت آیتم‌ها */
+        .item-status {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: white;
+            font-size: 14px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .deleted {
+            background-color: red;
+        }
+
+        .available {
+            background-color: green;
+        }
+
+        /* ... کدهای قبلی ... */
+
 
         .container {
             max-width: 800px;
@@ -78,6 +121,23 @@
             display: block;
             margin: 0 auto;
         }
+        /* استایل دکمه حذف با رنگ قرمز */
+        .custom-delete-button {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none; /* حذف زیر خط متن لینک */
+            font-size: 16px;
+        }
+
+            /* استایل هنگام هاور ماوس بر روی دکمه */
+            .custom-delete-button:hover {
+                background-color: darkred;
+                cursor: pointer;
+            }
+
     </style>
 </head>
 <body>
@@ -94,7 +154,9 @@
                     <th>تاریخ ایجاد</th>
                     <th>فایل</th>
                     <th>تصویر</th>
+                    <th>ویرایش</th>
                     <th>عملیات</th>
+                    <th>وضعیت</th>
                 </tr>
             </thead>
             <tbody>
@@ -118,8 +180,24 @@
                         </td>
                         <td>
                             <a asp-page="./Edit" asp-route-id="@item.Id" class="btn-success">ویرایش</a>
-                            <a asp-page="./Index" asp-route-id="@item.Id" asp-page-handler="Remove"  class="btn-success">حذف</a>
+                           
+
+                        <td>
+                                @if (item.IsRemoved == false)
+                                {
+                                <a asp-page="./Index" asp-route-id="@item.Id" asp-page-handler="Remove" class="custom-button delete-button">حذف</a>
+                                }
+                                else
+                                {
+                                <a asp-page="./Index" asp-route-id="@item.Id" asp-page-handler="Restore" class="custom-button restore-button">بازیابی</a>
+                                }
                         </td>
+                        <td>
+                            <span class="item-status @((item.IsRemoved) ? "deleted" : "available")">
+                                    @((item.IsRemoved) ? "حذف شده" : "موجود")
+                            </span>
+                        </td>
+
                     </tr>
                 }
             </tbody>

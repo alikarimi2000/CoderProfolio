@@ -61,7 +61,7 @@ namespace CD.Infrastructure.Repository
                     pc => pc.Id,
                     (p, pc) => new { Project = p, Category = pc }
                 )
-                .Where(p => !p.Project.IsRemoved)
+                
                 .Select(p => new ProjectViewModel
                 {
                     Name = p.Project.Name,
@@ -71,7 +71,8 @@ namespace CD.Infrastructure.Repository
                     ShortDescription = p.Project.ShortDescription,
                     Description = p.Project.Description,
                     CreationDate = p.Project.CreationDate.ToString(),
-                    Category = p.Category.Name
+                    Category = p.Category.Name,
+                    IsRemoved=p.Project.IsRemoved
                 })
                 .ToList();
 

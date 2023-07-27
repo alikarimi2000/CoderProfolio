@@ -1,23 +1,10 @@
-using CD.Application;
-using CD.ApplicationContracts.Project;
-using CD.ApplicationContracts.ProjectCategory;
-using CD.Domain.ProjectAgg;
-using CD.Domain.ProjectCategoryAgg;
-using CD.Infrastructure;
-using CD.Infrastructure.Repository;
-using Microsoft.EntityFrameworkCore;
 
+using CD.InfrastructureConfig;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddTransient<IProjectCategoryApplication, ProjectCategoryApplication>();
-builder.Services.AddTransient<IProjectCategoryApplication, ProjectCategoryApplication>();
-builder.Services.AddTransient<IProjectCategoryRepository, ProjectCategoryRepository>();
-builder.Services.AddTransient<IProjectApplication, ProjectApplication>();
-builder.Services.AddTransient<IProjectRepository, ProjectRepository>();
-var connectionString = "Server=.;Database=Profolio;Trusted_Connection=True;TrustServerCertificate=True;User Id=DESKTOP-IT7PIRM\\ali;";
-builder.Services.AddDbContext<EfContext>(x => x.UseSqlServer(connectionString));
+builder.Services.AddMyDependencyGroup();
 
 
 

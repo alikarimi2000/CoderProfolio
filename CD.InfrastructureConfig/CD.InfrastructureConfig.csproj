@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -14,6 +14,7 @@
     <ProjectReference Include="..\CD.ApplicationContracts\CD.ApplicationContracts.csproj" />
     <ProjectReference Include="..\CD.Application\CD.Application.csproj" />
     <ProjectReference Include="..\CD.Domin\CD.Domain.csproj" />
+    <ProjectReference Include="..\CD.Infrastructure.Query\CD.Infrastructure.Query.csproj" />
     <ProjectReference Include="..\CD.Infrastructure\CD.Infrastructure.csproj" />
   </ItemGroup>
 

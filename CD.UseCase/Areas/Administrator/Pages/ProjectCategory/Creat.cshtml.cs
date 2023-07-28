@@ -2,7 +2,7 @@ using CD.ApplicationContracts.ProjectCategory;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace CD.UseCase.Pages.ProjectCategory
+namespace CD.UseCase.Areas.Administrator.ProjectCategory
 {
     public class CreatModel : PageModel
     {

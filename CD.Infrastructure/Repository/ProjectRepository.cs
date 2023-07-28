@@ -1,11 +1,5 @@
 ﻿using CD.ApplicationContracts.Project;
 using CD.Domain.ProjectAgg;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CD.Infrastructure.Repository
 {

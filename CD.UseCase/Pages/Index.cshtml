@@ -1,0 +1,35 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "صفحه اصلی";
+    Layout = "_Layout"; // تعیین لایه‌ی استفاده شده برای این صفحه
+}
+
+<section class="mh-blog" id="mh-blog">
+    <div class="container">
+        <div class="row section-separator flex-row-reverse">
+            <div class="col-sm-12 section-title">
+                <h3>پروژه های من</h3>
+            </div>
+            @foreach (var project in Model.Projects)
+            {
+                <div class="col-sm-12 col-md-4">
+                    <div class="mh-blog-item dark-bg">
+                        <img src="@project.Image" alt="project image" class="img-fluid">
+                        <div class="row section-separator flex-row-reverse">
+                            <h2><a href="#">@project.Name</a></h2>
+                            <div class="mh-blog-post-info">
+                                <ul>
+                                    <li><a href="#">@project.CreationDate</a><strong>@project.Category</strong></li>
+                                </ul>
+                            </div>
+                            <p>@project.ShortDescription</p>
+                            <a href="@project.File" target="_blank"><i class="fa fa-download"></i> دانلود فایل</a>
+                            <a href="@project.Id"><i class="fa fa-info-circle"></i> جزئیات بیشتر</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

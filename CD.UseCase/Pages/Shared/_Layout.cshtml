@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - رزومه</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            font-family: 'Tahoma', sans-serif;
+            background-color: #f7f7f7;
+            color: #0f00;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+        }
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0f00;
+        }
+        .navbar-nav .nav-link {
+            font-size: 18px;
+            padding: 8px 15px;
+            color: #0f00;
+        }
+        .navbar-toggler {
+            border-color: #fff;
+            color: #0f00;
+            
+        }
+
+        .section-title h3 {
+            color: #000000;
+        }
+        .navbar-toggler-icon {
+            background-color: #fff;
+            color: #0f00;
+           
+        }
+        .content {
+            min-height: calc(100vh - 130px);
+            background-color: #f7f7f7;
+            color: #0f00;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header class="py-3">
+        <nav class="navbar navbar-expand-lg navbar-dark container">
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">خانه</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Skills">مهارت‌ها</a>
+                    </li>
+                    <!-- اضافه کردن بخش‌های دیگر بر اساس نیاز -->
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="content container py-4">
+        @RenderBody()
+    </div>
+
+    <footer class="text-light text-center py-3">
+        <p>اینجا فوتر وبسایت قرار می‌گیرد.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- برای استفاده از نسخه‌های قدیمی‌تر Popper.js با Bootstrap 4.3.1 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+
+

@@ -15,6 +15,7 @@ namespace CD.Domain.ProjectAgg
         Project Get(int Id);
         bool Exisit(string name, int categoryId);
         List<ProjectViewModel> Search(ProjectSearchModel projectSearch);
+        List<ProjectViewModel> GetAll();
 
     }
 }

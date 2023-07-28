@@ -66,13 +66,29 @@
     <div class="container">
         <h1>نام گروه پروژه را وارد کنید:</h1>
         <form method="post">
-            <input type="hidden" asp-for="@Model.CategoryID" required>
-            <input type="text" name="name" placeholder="توضیحات کوتاه">
+            @if (Model.ProjectCategories == null)
+            {
+                <input type="hidden" asp-for="@Model.CategoryID" required>
+            }
+            else
+            {
+                <select asp-for="@Model.CategoryID">
+                    <!-- حلقه بر روی ProjectCategories -->
+                    @foreach (var category in Model.ProjectCategories)
+                    {
+                        <!-- اضافه کردن گزینه‌ها به تگ select -->
+                        <option value="@category.Value">@category.Text</option>
+                    }
+                </select>
+                
+            }
+           
+            <input type="text" name="name" placeholder="نام">
             <textarea name="Description" placeholder="توضیحات کامل"></textarea>
             <input type="text" name="ShortDescription" placeholder="توضیحات کوتاه">
-            <input type="file" name="Image" accept="image/*">
+         
             <input type="text" name="Image" placeholder="لینک تصویر ">
-            <input type="file" name="File" accept="file/*">
+            
             <input type="text" name="File" placeholder="لینک فایل">
 
             <input type="submit" value="ثبت">

@@ -25,7 +25,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CD.InfrastructureConfig", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure.Query", "Infrastructure.Query", "{F14C97C3-B070-4055-BE30-B980F117CCC6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CD.Infrastructure.Query", "CD.Infrastructure.Query\CD.Infrastructure.Query.csproj", "{1C61ECDF-27B3-45C8-BA52-2689CAFA5DFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CD.Infrastructure.Query", "CD.Infrastructure.Query\CD.Infrastructure.Query.csproj", "{1C61ECDF-27B3-45C8-BA52-2689CAFA5DFF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

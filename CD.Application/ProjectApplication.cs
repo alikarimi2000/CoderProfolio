@@ -36,6 +36,11 @@ namespace CD.Application
             }
         }
 
+        public List<ProjectViewModel> GetAll()
+        {
+            return _repository.GetAll();
+        }
+
         public EditProject GetDetials(int Id)
         {
           return  _repository.GetDetails(Id);

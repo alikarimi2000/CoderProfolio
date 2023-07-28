@@ -28,6 +28,20 @@ namespace CD.Infrastructure.Repository
            return efContext.Projects.FirstOrDefault(p => p.Id == Id);
         }
 
+        public List<ProjectViewModel> GetAll()
+        {
+            return efContext.Projects.Select(p=>new ProjectViewModel
+            {
+                Id = p.Id,
+                Name = p.Name,
+                File = p.File,
+                Image = p.Image,
+                ShortDescription = p.ShortDescription,
+                Description = p.Description,
+
+            }).ToList();
+        }
+
         public EditProject GetDetails(int id)
         {
             return efContext.Projects.Select(p => new EditProject { 

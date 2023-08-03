@@ -8,7 +8,7 @@ namespace CD.ApplicationContracts.Project
 {
     public interface IProjectApplication
     {
-        List<ProjectViewModel> GetAll();
+        List<ProjectViewModel> GetAllProject();
         void Creat(CreatProject Comand);
         void Edit (EditProject Comand);
         void Remove(int id);

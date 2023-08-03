@@ -1,34 +1,19 @@
-﻿using CD.ApplicationContracts.ProjectCategory;
+﻿using _00.Framework.Infrast;
+using CD.ApplicationContracts.ProjectCategory;
 using CD.Domain.ProjectCategoryAgg;
 using System.Security.Cryptography.X509Certificates;
 
 namespace CD.Infrastructure.Repository
 {
-    public class ProjectCategoryRepository : IProjectCategoryRepository
+    public class ProjectCategoryRepository : RepositoryBase<int,ProjectCategory>, IProjectCategoryRepository
     {
         private readonly EfContext _efContext;
 
-        public ProjectCategoryRepository(EfContext efContext)
+        public ProjectCategoryRepository(EfContext efContext):base(efContext)
         {
             this._efContext = efContext;
         }
 
-        public void Creat(ProjectCategory projectCategory)
-        {
-
-            _efContext.ProjectCategories.Add(projectCategory);
-            SaveChange();
-        }
-
-        public bool Exist(string name)
-        {
-            return _efContext.ProjectCategories.Any(c => c.Name == name);
-        }
-
-        public ProjectCategory Get(int id)
-        {
-            return _efContext.ProjectCategories.FirstOrDefault(c => c.Id == id);
-        }
 
         public EditProjectCategory GetDetails(int id)
         {
@@ -40,10 +25,7 @@ namespace CD.Infrastructure.Repository
 
         }
 
-        public void SaveChange()
-        {
-            _efContext.SaveChanges();
-        }
+      
 
         public List<ProjectCategoryViewModel> Search(string name)
         {

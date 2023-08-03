@@ -1,10 +1,10 @@
-﻿using CD.Domain.ProjectAgg;
+﻿using _00.Framework.Domain;
+using CD.Domain.ProjectAgg;
 
 namespace CD.Domain.ProjectCategoryAgg
 {
-    public class ProjectCategory
+    public class ProjectCategory:EntityBase
     {
-        public int Id { get; private set; }
         public string Name { get; private set; }
         = string.Empty;
         public List<Project> Projects { get; set; }

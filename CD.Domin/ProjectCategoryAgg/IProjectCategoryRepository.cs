@@ -1,21 +1,15 @@
-﻿using CD.ApplicationContracts.ProjectCategory;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using _00.Framework.Domain;
+using CD.ApplicationContracts.ProjectCategory;
+
 
 namespace CD.Domain.ProjectCategoryAgg
 {
-    public interface IProjectCategoryRepository
+    public interface IProjectCategoryRepository:IRepository<int,ProjectCategory>
 
     {
         EditProjectCategory GetDetails(int id);
-        ProjectCategory Get(int id);
-        void Creat(ProjectCategory projectCategory);
-        void SaveChange();
         List<ProjectCategoryViewModel> Search(string name);
-        bool Exist(string name);
+       
 
     }
 }

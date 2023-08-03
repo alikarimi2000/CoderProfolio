@@ -1,4 +1,5 @@
-﻿using CD.ApplicationContracts.Project;
+﻿using _00.Framework.Domain;
+using CD.ApplicationContracts.Project;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,15 +8,12 @@ using System.Threading.Tasks;
 
 namespace CD.Domain.ProjectAgg
 {
-    public interface IProjectRepository
+    public interface IProjectRepository : IRepository<int, Project>
     {
-        void Creat(Project project);
-        void SaveChange();
+       
         EditProject GetDetails(int id);
-        Project Get(int Id);
-        bool Exisit(string name, int categoryId);
         List<ProjectViewModel> Search(ProjectSearchModel projectSearch);
-        List<ProjectViewModel> GetAll();
+        List<ProjectViewModel> GetAllProject();
 
     }
 }

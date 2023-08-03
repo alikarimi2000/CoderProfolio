@@ -1,34 +1,19 @@
-﻿using CD.ApplicationContracts.Project;
+﻿using _00.Framework.Infrast;
+using CD.ApplicationContracts.Project;
 using CD.Domain.ProjectAgg;
 
 namespace CD.Infrastructure.Repository
 {
-    public class ProjectRepository : IProjectRepository
+    public class ProjectRepository : RepositoryBase<int, Project>, IProjectRepository
     {
         private readonly EfContext efContext;
 
-        public ProjectRepository(EfContext efContext)
+        public ProjectRepository(EfContext efContext):base(efContext)
         {
             this.efContext = efContext;
         }
 
-        public void Creat(Project project)
-        {
-            efContext.Projects.Add(project);
-            SaveChange();
-        }
-
-        public bool Exisit(string name, int categoryId)
-        {
-            return efContext.Projects.Any(x=>x.Name==name && x.ProjectCategoriId==categoryId);
-        }
-
-        public Project Get(int Id)
-        {
-           return efContext.Projects.FirstOrDefault(p => p.Id == Id);
-        }
-
-        public List<ProjectViewModel> GetAll()
+        public List<ProjectViewModel> GetAllProject()
         {
             return efContext.Projects.Select(p=>new ProjectViewModel
             {
@@ -55,10 +40,7 @@ namespace CD.Infrastructure.Repository
             }).FirstOrDefault(p => p.Id == id);
         }
 
-        public void SaveChange()
-        {
-             efContext.SaveChanges();
-        }
+    
 
         public List<ProjectViewModel> Search(ProjectSearchModel projectSearch)
         {

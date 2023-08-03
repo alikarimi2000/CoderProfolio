@@ -14,7 +14,7 @@ namespace CD.Application
 
         public void Creat(CreatProjectCategory command)
         {
-            if (projectCategoryRepository.Exist(command.Name))
+            if (projectCategoryRepository.Exisit(x=>x.Name==command.Name))
             {
                 return;
             }

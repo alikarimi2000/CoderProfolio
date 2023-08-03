@@ -1,6 +1,6 @@
 ﻿using CD.ApplicationContracts.Project;
 using CD.Domain.ProjectAgg;
-
+using System.Security.Cryptography.X509Certificates;
 
 namespace CD.Application
 {
@@ -15,7 +15,7 @@ namespace CD.Application
 
         public void Creat(CreatProject Comand)
         {
-           if (_repository.Exisit(Comand.Name, Comand.CategoryId))
+           if (_repository.Exisit(x=>x.Name==Comand.Name))
             {
                 return;
             }
@@ -36,9 +36,9 @@ namespace CD.Application
             }
         }
 
-        public List<ProjectViewModel> GetAll()
+        public List<ProjectViewModel> GetAllProject()
         {
-            return _repository.GetAll();
+            return _repository.GetAllProject();
         }
 
         public EditProject GetDetials(int Id)

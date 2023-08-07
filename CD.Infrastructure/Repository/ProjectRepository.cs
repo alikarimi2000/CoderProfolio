@@ -44,6 +44,7 @@ namespace CD.Infrastructure.Repository
 
         public List<ProjectViewModel> Search(ProjectSearchModel projectSearch)
         {
+        
             var query = efContext.Projects
                 .Join(
                     efContext.ProjectCategories,

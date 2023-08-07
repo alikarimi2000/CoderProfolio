@@ -1,80 +1,52 @@
-﻿@page
-@using CD.UseCase.Areas.Administrator.Pages.Project;
-@model EditModel
+﻿@model CD.ApplicationContracts.Project.EditProject
 @{
 }
-
-<html>
-<head>
-    <title>فرم ورود نام کاربر</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f1f1f1;
-        }
-
-        .container {
-            max-width: 400px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-
-        input[type="text"] {
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            outline: none;
-        }
-
-        input[type="submit"] {
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-            input[type="submit"]:hover {
-                background-color: #45a049;
-            }
-
-        .success-message {
-            color: #4CAF50;
-            text-align: center;
-            margin-top: 10px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>لطفاً نام خود را وارد کنید:</h1>
-        <form method="post">
-
-            <input asp-for="@Model.editProject.Name" required >
-            <input asp-for="@Model.editProject.Image" required placeholder="عکس">
-            <input asp-for="@Model.editProject.File" required placeholder="فایل">
-            <input asp-for="@Model.editProject.Description" required placeholder="توضیحات">
-            <input asp-for="@Model.editProject.ShortDescription" required placeholder="توضیح کوتاه">
-            <input asp-for="@Model.editProject.CategoryId" required placeholder="ایدی گروه">
-          
-            <input type="hidden" asp-for="@Model.editProject.Id" required>
-            <input type="submit" value="ثبت نام">
-        </form>
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h4 class="modal-title">ویرایش نام گروه پروژه@Model.Name</h4>
+</div>
+<form asp-page="./Index" asp-page-handler="Edit"
+      method="post"
+      data-ajax="true"
+      data-callback=""
+      data-action="Refresh"
+      enctype="multipart/form-data">
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label">نام</label>
+                    <input type="text" class="form-control" asp-for=@Model.Name >
+                    <span asp-validation-for="Name" class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label">توضیح کوتاه</label>
+                    <input type="text" class="form-control" asp-for=@Model.ShortDescription>
+                    <span asp-validation-for="Name" class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label">توضیح</label>
+                    <input type="text" class="form-control" asp-for=@Model.Description>
+                    <span asp-validation-for="Name" class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label">عکس</label>
+                    <input type="text" class="form-control" asp-for=@Model.Image>
+                    <span asp-validation-for="Name" class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label">فایل</label>
+                    <input type="text" class="form-control" asp-for=@Model.File>
+                    <span asp-validation-for="Name" class="error"></span>
+                </div>
+            </div>
+        </div>
+        <input hidden
+           asp-for="Id" value="@Model.Id"
+            />
     </div>
-</body>
-</html>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">بستن</button>
+        <button type="submit" class="btn btn-info waves-effect waves-light">,ویرایش</button>
+    </div>
+</form>

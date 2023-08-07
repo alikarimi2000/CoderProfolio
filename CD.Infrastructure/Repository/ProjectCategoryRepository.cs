@@ -33,6 +33,7 @@ namespace CD.Infrastructure.Repository
             {
                 Name = x.Name,
                 Id = x.Id,
+                CreationDate=x.CreationDate.ToLongDateString(),
             });
             if (!string.IsNullOrEmpty(name))
             

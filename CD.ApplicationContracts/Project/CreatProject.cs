@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CD.ApplicationContracts.ProjectCategory;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,7 @@ namespace CD.ApplicationContracts.Project
         public string ShortDescription { get; set; }
         public string Image { get; set; }
         public string File { get; set; }
+       public List<ProjectCategoryViewModel>ProjectCategories { get; set; }
 
     }
 }

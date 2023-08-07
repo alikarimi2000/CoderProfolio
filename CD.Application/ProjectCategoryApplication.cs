@@ -37,9 +37,17 @@ namespace CD.Application
 
         }
 
-        public List<ProjectCategoryViewModel> GetAll()
+   
+
+        public List<ProjectCategoryViewModel> GetAllPC()
         {
-            throw new NotImplementedException();
+            List<ProjectCategoryViewModel> projectCategoryViewModel=new List<ProjectCategoryViewModel>();
+           var projectCategories= projectCategoryRepository.GetAll();
+            foreach (var projectCategory in projectCategories)
+            {
+                projectCategoryViewModel.Add(new ProjectCategoryViewModel {Name=projectCategory.Name,Id=projectCategory.Id });
+            }
+            return projectCategoryViewModel;
         }
 
         public EditProjectCategory GetDetails(int id)

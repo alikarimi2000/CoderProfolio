@@ -8,7 +8,9 @@ namespace CD.ApplicationContracts.Project
 {
     public class ProjectSearchModel
     {
+ 
         public string Name { get; set; }
+        public int ProjectCategoryId { get; set; }
         public bool IsRemoved { get; set; }
     }
 }
